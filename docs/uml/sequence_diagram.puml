@@ -1,0 +1,16 @@
+@startuml
+actor User
+participant "AccountController" as Controller
+participant "AccountService" as Service
+participant "AccountDao" as Dao
+participant "Database" as DB
+
+User -> Controller : GET /account/search?key=小米
+Controller -> Service : search("小米")
+Service -> Dao : find("小米")
+Dao -> DB : SELECT * FROM account WHERE name LIKE '%小米%'
+DB --> Dao : ResultSet
+Dao --> Service : List<Account>
+Service --> Controller : List<Account>
+Controller --> User : HTTP JSON 响应
+@enduml

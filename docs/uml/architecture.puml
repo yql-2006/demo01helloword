@@ -1,0 +1,25 @@
+@startuml
+skinparam defaultFontName "Microsoft YaHei"
+component "Web 客户端 / REST 调用方" as Client
+component "Spring MVC 控制层" as Controller
+component "业务服务层" as Service
+component "持久层 / DAO" as DAO
+component "关系型数据库" as Database
+
+Client --> Controller : HTTP 请求
+Controller --> Service : 调用 search(key)
+Service --> DAO : 调用 find(key)
+DAO --> Database : SQL 查询
+Database --> DAO : 返回记录
+DAO --> Service : 返回实体列表
+Service --> Controller : 返回结果
+Controller --> Client : HTTP 响应
+
+package "Spring Boot 应用" {
+  [Test01Controller]
+  [AccountController]
+  [AccountService]
+  [AccountDao]
+  [AccountMapper]
+}
+@enduml

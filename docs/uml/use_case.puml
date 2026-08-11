@@ -1,0 +1,22 @@
+@startuml
+skinparam defaultFontName "Microsoft YaHei"
+left to right direction
+actor User as "系统用户"
+
+rectangle "账户检索系统" {
+  usecase "检索账户信息" as UC_Search
+  usecase "访问测试接口" as UC_Test
+}
+
+User --> UC_Search
+User --> UC_Test
+
+note right of UC_Search
+  用户通过关键字查询账户
+  返回账户列表
+end note
+
+note right of UC_Test
+  显示测试返回的文本
+end note
+@enduml

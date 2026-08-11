@@ -1,0 +1,9 @@
+@startuml
+skinparam defaultFontName "Microsoft YaHei"
+entity Account {
+  * id : String <<PK>>
+  --
+  name : String
+  value : Double
+}
+@enduml

@@ -1,0 +1,35 @@
+@startuml
+skinparam defaultFontName "Microsoft YaHei"
+class Account {
+  - String id
+  - String name
+  - Double value
+}
+
+class AccountController {
+  + Object search(String key)
+}
+
+class AccountService {
+  - AccountDao accountDao
+  + List<Account> search(String key)
+}
+
+class AccountDao {
+  - JdbcTemplate jdbcTemplate
+  + List<Account> find(String key)
+}
+
+class AccountMapper {
+  + void deleteById(String id)
+  + void updateAccount(Account account)
+  + void addAccount(Account account)
+  + List<Account> findAll()
+  + Account findById(String id)
+}
+
+AccountController --> AccountService : uses
+AccountService --> AccountDao : uses
+AccountDao --> Account : returns
+AccountMapper --> Account : maps
+@enduml

@@ -1,0 +1,30 @@
+server:
+  port: 8092
+  servlet:
+    context-path: "/web02"
+spring:
+  redis:
+    host: 192.168.152.142       # Redis服务器地址
+    port: 6379                # Redis服务器端口，默认为6379
+    database: 0              # Redis数据库索引（默认为0）
+    # password: yourpassword  # Redis密码（如果你的Redis服务器设置了密码）
+    timeout: 10000           # 连接超时时间（毫秒）
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springboot_db?useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database: mysql
+
+
+mybatis:
+  type-aliases-package: com.wzx.demo01helloword.bean2
+  mapper-locations: classpath:com.wzx.demo01helloword.mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #mybatis日志

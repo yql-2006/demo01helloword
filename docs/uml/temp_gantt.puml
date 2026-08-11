@@ -1,0 +1,9 @@
+@startgantt
+project starts 2026-08-10
+[需求分析] lasts 1 day
+[架构设计] starts at [需求分析] + 1 day lasts 1 day
+[数据建模] starts at [架构设计] + 1 day lasts 1 day
+[类图与接口设计] starts at [数据建模] + 1 day lasts 1 day
+[流程图与时序图] starts at [类图与接口设计] + 1 day lasts 0.5 day
+[文档整合与交付] starts at [流程图与时序图] + 0.5 day lasts 0.5 day
+@endgantt

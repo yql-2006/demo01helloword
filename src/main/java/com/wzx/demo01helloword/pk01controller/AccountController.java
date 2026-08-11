@@ -1,0 +1,23 @@
+package com.wzx.demo01helloword.pk01controller;
+
+import com.wzx.demo01helloword.pk02service.AccountService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@Slf4j
+public class AccountController {
+
+    @Autowired
+    AccountService accountService;
+
+    @RequestMapping(value="/account/search",method = {RequestMethod.POST,RequestMethod.GET})
+    public Object search(String key){
+
+        log.info("AccountController---search-");
+        return accountService.search("小米");
+    }
+}
